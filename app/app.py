@@ -31,7 +31,7 @@ tokenizer = ToktokTokenizer()
 pd.set_option('display.max_columns', None)
 
 #storing my api key to use for the project
-api_key = os.getenv("API_KEY")
+api_key = st.secrets["api_keys"]["my_api_key"]
 openai.api_key = api_key
 
 #________________________________________________________________________________________________
