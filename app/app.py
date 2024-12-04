@@ -90,7 +90,7 @@ st.markdown(
 # Streamlit App
 st.title("EduLens: Student Feedback Analyzer") 
 logo_path = os.path.join(os.path.dirname(__file__), "assets/logo.png")
-st.image(logo_path, use_column_width=True)
+st.image(logo_path, use_container_width=200)
 st.write('''This app is designed to help you explore and analyze student feedback efficiently and
           meaningfully. With EduLens, you can clean and preprocess feedback, perform sentiment analysis 
          to distinguish between satisfactory and dissatisfactory reviews, and group similar feedback into
