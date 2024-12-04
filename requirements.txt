@@ -1,0 +1,9 @@
+pandas 
+re
+string  
+nltk  
+torch
+openai
+streamlit 
+contractions  
+os
