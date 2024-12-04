@@ -46,6 +46,22 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+logo_path = os.path.join(os.path.dirname(__file__), "assets/logo.png")
+# Add custom CSS to style the logo
+st.markdown("""
+    <style>
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px; /* Adjust size as needed */
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Display the logo in the top left corner
+st.image(logo_path, use_container_width=False, width=50, key="logo", caption=None)
+
 # Custom CSS for styling the app elements
 st.markdown(
     """
@@ -89,8 +105,7 @@ st.markdown(
 
 # Streamlit App
 st.title("EduLens: Student Feedback Analyzer") 
-logo_path = os.path.join(os.path.dirname(__file__), "assets/logo.png")
-st.image(logo_path, use_container_width=100)
+
 st.write('''This app is designed to help you explore and analyze student feedback efficiently and
           meaningfully. With EduLens, you can clean and preprocess feedback, perform sentiment analysis 
          to distinguish between satisfactory and dissatisfactory reviews, and group similar feedback into
