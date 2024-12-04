@@ -1,9 +1,6 @@
-pandas 
-re
-string  
+pandas  
 nltk  
 torch
 openai
 streamlit 
 contractions  
-os
