@@ -5,4 +5,5 @@ openai
 streamlit 
 contractions  
 scikit-learn
-
+kneed
+transformers
