@@ -4,3 +4,5 @@ torch
 openai
 streamlit 
 contractions  
+scikit-learn
+
