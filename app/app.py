@@ -54,13 +54,13 @@ st.markdown("""
             position: absolute;
             top: 10px;
             left: 10px;
-            width: 50px; /* Adjust size as needed */
+            width: 100px; /* Adjust size as needed */
         }
     </style>
 """, unsafe_allow_html=True)
 
 # Display the logo in the top left corner
-st.image(logo_path, use_container_width=False, width=50, caption=None)
+st.image(logo_path, use_container_width=False, width=100, caption=None)
 
 # Custom CSS for styling the app elements
 st.markdown(
