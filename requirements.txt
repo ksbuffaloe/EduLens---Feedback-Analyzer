@@ -7,3 +7,4 @@ contractions
 scikit-learn
 kneed
 transformers
+openpyxl
