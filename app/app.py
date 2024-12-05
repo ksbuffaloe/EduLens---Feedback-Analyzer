@@ -495,7 +495,7 @@ if st.session_state["run_clustering"]:
 
         #create a sat_clusters dataframe that will be used in printing final dataset with NA as the cluster name
         st.session_state["sat_clusters"] = st.session_state['df_labeled']['review'].loc[st.session_state['df_satisfactory'].index].copy()
-        st.session_state["sat_clusters"]['clusters and feedback'] = "NA - Not enough satisfactory feedback"
+        st.session_state["sat_clusters"]['cluster and feedback'] = "NA - Not enough satisfactory feedback"
     else:   
         if "sat_elbow" not in st.session_state:
             st.session_state["sat_elbow"] = elbow_locator(st.session_state["sat_matrix"])
