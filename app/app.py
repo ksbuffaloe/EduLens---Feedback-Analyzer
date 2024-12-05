@@ -492,6 +492,10 @@ if st.session_state["run_clustering"]:
                 st.markdown(f"{idx + 1}. {review}")
         # Add a horizontal separator
         st.markdown("---")
+
+        #create a sat_clusters dataframe that will be used in printing final dataset with NA as the cluster name
+        st.session_state["sat_clusters"] = st.session_state['df_labeled']['review'].loc[st.session_state['df_satisfactory'].index].copy()
+        st.session_state["sat_clusters"]['clusters and feedback'] = "NA - Not enough satisfactory feedback"
     else:   
         if "sat_elbow" not in st.session_state:
             st.session_state["sat_elbow"] = elbow_locator(st.session_state["sat_matrix"])
@@ -559,7 +563,7 @@ if  st.session_state["download"]:
     # Extract cluster columns and ensure they have the same index as the original DataFrame
     disat_cluster_map = st.session_state["disat_clusters"]['cluster and feedback']
     sat_cluster_map = st.session_state["sat_clusters"]["cluster and feedback"]
-
+    
     # Combine the Series into one, maintaining their indices
     clusters_feedback = pd.concat([disat_cluster_map, sat_cluster_map])
 
