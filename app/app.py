@@ -481,23 +481,36 @@ if st.button("Run Clustering Analysis"):
 #Begin the clustering analsis
 if st.session_state["run_clustering"]:
     # Run clustering for satisfactory comments
-    if "sat_elbow" not in st.session_state:
-        st.session_state["sat_elbow"] = elbow_locator(st.session_state["sat_matrix"])
+    if len(st.session_state["df_satisfactory"]) < 10:
+        st.write("There was not enough satisfactory feedback to cluster, here are the satisfactory comments: ")
 
-    if st.session_state["sat_elbow"] is None:  # If elbow is not found
-        st.session_state["sat_elbow"] = 3  # Default to 3 clusters
-        
-
-    if "sat_clusters" not in st.session_state:
-        st.markdown("### Clustering all Satisfacory Feedback")
+        # Display top reviews in an expander for readability
+        with st.expander("Top Feedback"):
+            for idx, review in enumerate(st.session_state['df_labeled'].loc[st.session_state['df_satisfactory'].index]):
+                st.markdown(f"{idx + 1}. {review}")
+        # Add a horizontal separator
         st.markdown("---")
-        st.session_state["sat_clusters"] = get_cluster_labels(
-            st.session_state["df_satisfactory"],
-            st.session_state["df_original"],
-            st.session_state["sat_matrix"],
-            st.session_state["sat_elbow"],
-            st.session_state["sat_vectorize"]
-        )
+    else:   
+        if "sat_elbow" not in st.session_state:
+            st.session_state["sat_elbow"] = elbow_locator(st.session_state["sat_matrix"])
+
+         # If elbow is not found set up default clusters
+        if st.session_state["sat_elbow"] is None: 
+            if len(st.session_state["df_satisfactory"]) < 20:
+                st.session_state["sat_elbow"] = 2  
+            else:
+                st.session_state["sat_elbow"] = 3
+            
+        if "sat_clusters" not in st.session_state:
+            st.markdown("### Clustering all Satisfacory Feedback")
+            st.markdown("---")
+            st.session_state["sat_clusters"] = get_cluster_labels(
+                st.session_state["df_satisfactory"],
+                st.session_state["df_original"],
+                st.session_state["sat_matrix"],
+                st.session_state["sat_elbow"],
+                st.session_state["sat_vectorize"]
+            )
 
     # Run clustering for dissatisfactory comments
     if "disat_elbow" not in st.session_state:
