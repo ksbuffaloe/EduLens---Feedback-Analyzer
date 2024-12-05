@@ -493,9 +493,12 @@ if st.session_state["run_clustering"]:
         # Add a horizontal separator
         st.markdown("---")
 
-        #create a sat_clusters dataframe that will be used in printing final dataset with NA as the cluster name
-        st.session_state["sat_clusters"] = st.session_state['df_labeled']['review'].loc[st.session_state['df_satisfactory'].index].copy()
-        st.session_state["sat_clusters"]['cluster and feedback'] = "NA - Not enough satisfactory feedback"
+        # Create a DataFrame for sat_clusters with NA as the cluster name
+        sat_clusters = st.session_state['df_labeled']['review'].loc[st.session_state['df_satisfactory'].index].to_frame(name='review')
+        sat_clusters['cluster and feedback'] = "NA - Not enough satisfactory feedback"
+
+        # Save to session state
+        st.session_state["sat_clusters"] = sat_clusters
     else:   
         if "sat_elbow" not in st.session_state:
             st.session_state["sat_elbow"] = elbow_locator(st.session_state["sat_matrix"])
