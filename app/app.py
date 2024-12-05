@@ -486,7 +486,7 @@ if st.session_state["run_clustering"]:
 
         # Display top reviews in an expander for readability
         with st.expander("Top Feedback"):
-            for idx, review in enumerate(st.session_state['df_labeled'].loc[st.session_state['df_satisfactory'].index]):
+            for idx, review in enumerate(st.session_state['df_labeled']['review'].loc[st.session_state['df_satisfactory'].index]):
                 st.markdown(f"{idx + 1}. {review}")
         # Add a horizontal separator
         st.markdown("---")
