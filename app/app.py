@@ -268,7 +268,7 @@ def chatGPT_cluster_labels(features, feedback):
         model="gpt-3.5-turbo",  # Specify the model
         messages=[
             {"role": "user", "content": f'''Given a list of top features and feedback from students create a cluster name.
-            followed by a new line with feedback about what is going well or what could be improved. Pay special attention to the 
+            followed by a new line with your own feedback about what is going well or what could be improved. Pay special attention to the 
              feedback specifically. \nFeatures: \n{features}\n Feedback: \n {feedback}'''}
         ]
     )
