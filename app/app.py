@@ -20,6 +20,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from kneed import KneeLocator
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import streamlit.components.v1 as components
 
 # Download necessary NLTK resources
 nltk.download('stopwords')
@@ -33,6 +34,24 @@ pd.set_option('display.max_columns', None)
 #storing my api key to use for the project
 api_key = st.secrets["api_keys"]["my_api_key"]
 openai.api_key = api_key
+
+
+
+# Google Analytics Script
+ga_script = """
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7QZF0QS0R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C7QZF0QS0R');
+</script>
+"""
+
+# Inject script into the Streamlit app
+components.html(ga_script, height=0)
 
 #________________________________________________________________________________________________
 #                              INITIATE STREAMLIT APP AND SET THEME
