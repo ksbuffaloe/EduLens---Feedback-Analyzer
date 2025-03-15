@@ -122,7 +122,7 @@ st.write("To get started, simply upload your dataset, follow the guided steps to
 #________________________________________________________________________________________________
 
 # Include Google Analytics tracking code
-with open("google_analytics.html", "r") as f:
+with open("app/google_analytics.html", "r") as f:
     html_code = f.read()
     components.html(html_code, height=0)
 
