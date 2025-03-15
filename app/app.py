@@ -121,21 +121,10 @@ st.write("To get started, simply upload your dataset, follow the guided steps to
 #                              INSTALL GOOGLE ANALYTICS ON THE SITE
 #________________________________________________________________________________________________
 
-# Google Analytics Script
-ga_script = """
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J7GRYS4T84"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J7GRYS4T84');
-</script>
-"""
-
-# Inject script into the Streamlit app
-components.html(ga_script, height=0)
+# Include Google Analytics tracking code
+with open("google_analytics.html", "r") as f:
+    html_code = f.read()
+    components.html(html_code, height=0)
 
 
 #________________________________________________________________________________________________
