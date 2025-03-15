@@ -35,24 +35,6 @@ pd.set_option('display.max_columns', None)
 api_key = st.secrets["api_keys"]["my_api_key"]
 openai.api_key = api_key
 
-
-
-# Google Analytics Script
-ga_script = """
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7QZF0QS0R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-C7QZF0QS0R');
-</script>
-"""
-
-# Inject script into the Streamlit app
-components.html(ga_script, height=0)
-
 #________________________________________________________________________________________________
 #                              INITIATE STREAMLIT APP AND SET THEME
 #________________________________________________________________________________________________
@@ -134,6 +116,28 @@ st.write('''This app is designed to help you explore and analyze student feedbac
           and cluster information, for further use.''')
 
 st.write("To get started, simply upload your dataset, follow the guided steps to clean and analyze your data, and unlock actionable insights into student feedback!")
+
+#________________________________________________________________________________________________
+#                              INSTALL GOOGLE ANALYTICS ON THE SITE
+#________________________________________________________________________________________________
+
+# Google Analytics Script
+ga_script = """
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7QZF0QS0R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C7QZF0QS0R');
+</script>
+"""
+
+# Inject script into the Streamlit app
+components.html(ga_script, height=0)
+
+
 #________________________________________________________________________________________________
 #                     INITIATE FUNCTIONS AND VARIABLES THAT WILL BE USED LATER
 #________________________________________________________________________________________________
