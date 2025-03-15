@@ -124,13 +124,13 @@ st.write("To get started, simply upload your dataset, follow the guided steps to
 # Google Analytics Script
 ga_script = """
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7QZF0QS0R"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J7GRYS4T84"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-C7QZF0QS0R');
+  gtag('config', 'G-J7GRYS4T84');
 </script>
 """
 
