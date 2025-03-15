@@ -135,7 +135,7 @@ ga_script = """
 """
 
 # Inject script into the Streamlit app
-st.components.html(ga_script, height=0)
+components.html(ga_script, height=0)
 
 
 #________________________________________________________________________________________________
